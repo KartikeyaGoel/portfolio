@@ -1,0 +1,20 @@
+{
+  "name": "Kartikeya Goel - Portfolio",
+  "short_name": "Kartikeya",
+  "description": "CS Student | Software Developer | Tech Enthusiast - Portfolio showcasing projects and experience",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#eab308",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["technology", "education", "business"],
+  "lang": "en",
+  "dir": "ltr"
+} 
