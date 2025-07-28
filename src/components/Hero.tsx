@@ -19,51 +19,47 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Kartikeya Goel
+            Hey, I'm Kartikeya
           </h1>
         </motion.div>
         
-        <motion.p 
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
-            Computer Science Student at Stanford University specializing in Systems & AI. 
-            Building intelligent solutions through agentic workflows and machine learning.
-        </motion.p>
-          
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex flex-wrap justify-center items-center gap-6 mb-12 text-gray-400"
-        >
-            <div className="flex items-center gap-2">
-              <MapPin size={18} />
-              <span>Richmond Metropolitan Area</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail size={18} />
-              <a href="mailto:kg070225@gmail.com" className="hover:text-yellow-400 transition-colors duration-300">
-                kg070225@gmail.com
-              </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone size={18} />
-              <span>(804) 414-5262</span>
-            </div>
+          <span 
+            onClick={() => scrollToSection('education')}
+            className="cursor-pointer hover:text-yellow-400 transition-colors duration-300 hover:scale-105 inline-block"
+          >
+            CS Student
+          </span>
+          <span className="mx-2">|</span>
+          <span 
+            onClick={() => scrollToSection('skills')}
+            className="cursor-pointer hover:text-yellow-400 transition-colors duration-300 hover:scale-105 inline-block"
+          >
+            Software Developer
+          </span>
+          <span className="mx-2">|</span>
+          <span 
+            onClick={() => scrollToSection('projects')}
+            className="cursor-pointer hover:text-yellow-400 transition-colors duration-300 hover:scale-105 inline-block"
+          >
+            Tech Enthusiast
+          </span>
         </motion.div>
 
         <motion.button
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            onClick={() => scrollToSection('education')}
-            className="inline-flex items-center gap-2 bg-yellow-500 text-slate-900 px-8 py-4 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-semibold"
-          >
-            Learn More About Me
-            <ChevronDown size={20} />
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          onClick={() => scrollToSection('education')}
+          className="inline-flex items-center gap-2 bg-yellow-500 text-slate-900 px-8 py-4 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-semibold"
+        >
+          Learn More About Me
+          <ChevronDown size={20} />
         </motion.button>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimatedSection from './AnimatedSection';
-import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, ExternalLink } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
@@ -19,10 +19,10 @@ const Contact = () => {
       color: "text-yellow-400"
     },
     {
-      icon: <MapPin size={24} />,
-      label: "Location",
-      value: "Richmond Metropolitan Area",
-      href: null,
+      icon: <Github size={24} />,
+      label: "GitHub",
+      value: "KartikeyaGoel",
+      href: "https://github.com/KartikeyaGoel",
       color: "text-yellow-400"
     },
     {
