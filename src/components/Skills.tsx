@@ -4,8 +4,6 @@ import { Code, Database, Cloud, Cpu } from 'lucide-react';
 import { useState } from 'react';
 
 const Skills = () => {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
 
   const skillCategories = [
     {
@@ -100,100 +98,55 @@ const Skills = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <AnimatedSection className="text-center mb-16">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="mb-4"
           >
             <h2 className="text-4xl font-bold text-white">Skills & Technologies</h2>
           </motion.div>
           <p className="text-xl text-gray-300">Technical expertise and competencies</p>
-        </AnimatedSection>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => {
             const colors = colorClasses[category.color as keyof typeof colorClasses];
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: `0 20px 40px ${colors.glow}`,
-                }}
-                onHoverStart={() => setHoveredCategory(index)}
-                onHoverEnd={() => setHoveredCategory(null)}
-                className={`${colors.bg} ${colors.border} border rounded-2xl p-6 transition-all duration-500 backdrop-blur-sm relative overflow-hidden group`}
+                className={`${colors.bg} ${colors.border} border rounded-2xl p-6 transition-all duration-500 backdrop-blur-sm relative overflow-hidden group hover:scale-105 hover:shadow-2xl`}
               >
                 {/* Hover glow effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${colors.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl`}></div>
                 
                 <div className="relative z-10">
-                  <motion.div 
-                    className="flex items-center gap-4 mb-6"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <motion.div 
-                      className={`${colors.icon} text-white p-3 rounded-lg shadow-lg`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div 
+                      className={`${colors.icon} text-white p-3 rounded-lg shadow-lg hover:rotate-12 transition-transform duration-300`}
                     >
                       {category.icon}
-                    </motion.div>
-                    <h3 className={`text-xl font-bold ${colors.text}`}>
-                      {category.title}
-                    </h3>
-                  </motion.div>
+                    </div>
+                                          <h3 className={`text-xl font-bold ${colors.text}`}>
+                        {category.title}
+                      </h3>
+                    </div>
 
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <motion.span
+                      <span
                         key={skillIndex}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: skillIndex * 0.05 }}
-                        whileHover={{ 
-                          scale: 1.1,
-                          boxShadow: `0 10px 20px ${colors.glow}`,
-                        }}
-                        onHoverStart={() => setHoveredSkill(skill)}
-                        onHoverEnd={() => setHoveredSkill(null)}
-                        className={`${colors.skill} px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer relative overflow-hidden group/skill`}
+                        className={`${colors.skill} px-3 py-1 rounded-full text-sm font-medium`}
                       >
-                        {/* Skill hover effect */}
-                        <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300`}></div>
-                        
-                        <span className="relative z-10">{skill}</span>
-                        
-                        {/* Floating particles on hover */}
-                        {hoveredSkill === skill && (
-                          <>
-                            <motion.div
-                              className="absolute -top-1 -left-1 w-2 h-2 bg-yellow-400 rounded-full"
-                              initial={{ scale: 0, opacity: 0 }}
-                              animate={{ scale: 1, opacity: 1 }}
-                              exit={{ scale: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                            />
-                            <motion.div
-                              className="absolute -bottom-1 -right-1 w-1 h-1 bg-white rounded-full"
-                              initial={{ scale: 0, opacity: 0 }}
-                              animate={{ scale: 1, opacity: 1 }}
-                              exit={{ scale: 0, opacity: 0 }}
-                              transition={{ duration: 0.3, delay: 0.1 }}
-                            />
-                          </>
-                        )}
-                      </motion.span>
+                        {skill}
+                      </span>
                     ))}
                   </div>
+                                  </div>
                 </div>
-              </motion.div>
-            );
+              );
           })}
         </div>
       </div>

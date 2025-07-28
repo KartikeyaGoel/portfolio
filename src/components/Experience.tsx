@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import { Calendar, MapPin, Briefcase } from 'lucide-react';
-import { useState } from 'react';
 
 const Experience = () => {
-  const [hoveredExperience, setHoveredExperience] = useState<number | null>(null);
 
   const experiences = [
     {
@@ -112,19 +110,10 @@ const Experience = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ scale: 1.02 }}
-              onHoverStart={() => setHoveredExperience(index)}
-              onHoverEnd={() => setHoveredExperience(null)}
               className="relative flex items-start group"
             >
               {/* Animated Timeline dot */}
-              <motion.div 
-                className="absolute left-6 w-4 h-4 bg-yellow-400 rounded-full border-4 border-slate-900 z-10"
-                animate={{
-                  scale: hoveredExperience === index ? 1.5 : 1,
-                  boxShadow: hoveredExperience === index ? "0 0 20px rgba(234, 179, 8, 0.5)" : "none"
-                }}
-                transition={{ duration: 0.3 }}
-              />
+              <div className="absolute left-6 w-4 h-4 bg-yellow-400 rounded-full border-4 border-slate-900 z-10" />
               
               {/* Timeline icon with rotation */}
               <motion.div 
@@ -144,14 +133,9 @@ const Experience = () => {
                   <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <motion.h3 
-                          className="text-2xl font-bold text-white"
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                        >
+                        <h3 className="text-2xl font-bold text-white">
                           {exp.company}
-                        </motion.h3>
+                        </h3>
                         {exp.current && (
                           <motion.span 
                             className="bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full border border-green-500/30"
@@ -165,34 +149,19 @@ const Experience = () => {
                         )}
                       </div>
                       
-                      <motion.p 
-                        className="text-lg text-yellow-400 font-semibold mb-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                      >
+                      <p className="text-lg text-yellow-400 font-semibold mb-3">
                         {exp.role}
-                      </motion.p>
+                      </p>
                       
                       <div className="flex flex-col sm:flex-row gap-4 text-gray-400">
-                        <motion.div 
-                          className="flex items-center gap-2"
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
-                        >
+                        <div className="flex items-center gap-2">
                           <Calendar size={16} />
                           <span className="font-medium">{exp.period}</span>
-                        </motion.div>
-                        <motion.div 
-                          className="flex items-center gap-2"
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-                        >
+                        </div>
+                        <div className="flex items-center gap-2">
                           <MapPin size={16} />
                           <span>{exp.location}</span>
-                        </motion.div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -200,20 +169,13 @@ const Experience = () => {
                   <div className="border-t border-slate-700/50 pt-6">
                     <ul className="space-y-3">
                       {exp.description.map((desc, descIndex) => (
-                        <motion.li 
+                        <li 
                           key={descIndex} 
                           className="flex items-start gap-3 text-gray-300 group-hover:text-gray-200 transition-colors duration-300"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 + 0.6 + descIndex * 0.1 }}
                         >
-                          <motion.div 
-                            className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0"
-                            whileHover={{ scale: 1.5 }}
-                            transition={{ duration: 0.2 }}
-                          />
+                          <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
                           <span className="leading-relaxed">{desc}</span>
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
                   </div>

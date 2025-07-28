@@ -1,0 +1,8 @@
+# Netlify redirects for favicon and static assets
+/favicon.ico /favicon.ico 200
+/logo192.png /logo192.png 200
+/logo512.png /logo512.png 200
+/manifest.json /manifest.json 200
+
+# Handle client-side routing
+/* /index.html 200 
