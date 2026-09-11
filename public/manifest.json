@@ -1,12 +1,7 @@
 {
   "short_name": "Kartikeya",
-  "name": "Kartikeya Goel - Portfolio",
+  "name": "Kartikeya Goel — Software Engineer",
   "icons": [
-    {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
     {
       "src": "/logo192.png",
       "type": "image/png",
@@ -20,6 +15,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#eab308",
-  "background_color": "#0f172a"
+  "theme_color": "#f3f7fb",
+  "background_color": "#f3f7fb"
 } 
